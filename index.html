@@ -61,7 +61,7 @@
         background-color: #45a049;
       }
 
-      iframe {
+      iframe, video {
         margin-left: 10%;
         margin-right: 10%;
         width: 80%;
@@ -719,6 +719,7 @@
         <video id="videoPlayer" controls>
           Seu navegador não suporta o elemento de vídeo.
         </video>
+        
         <iframe
           id="video-iframe"
           allow="encrypted-media"
@@ -795,11 +796,16 @@
               mainElement.innerHTML = "";
             }
           } else {
-            if (mainElement && containerElements.length > 0) {
+            if(mainElement == ""){
+              if (mainElement && containerElements.length > 0) {
               mainElement.innerHTML = "";
               containerElements.forEach(function (element) {
                 mainElement.innerHTML += element.innerHTML;
               });
+            }else{
+              return;
+            }
+            
             }
           }
         }
