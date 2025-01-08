@@ -1,17 +1,3 @@
-if (Hls.isSupported()) {
-  var video = document.getElementById("video");
-  var hls = new Hls();
-  hls.loadSource("http://tv.fazoeli.co.za/m3u8/globorj.m3u8");
-  hls.attachMedia(video);
-  hls.on(Hls.Events.MANIFEST_PARSED, function () {
-    video.play();
-  });
-} else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-  video.src = "http://tv.fazoeli.co.za/m3u8/globorj.m3u8";
-  video.addEventListener("canplay", function () {
-    video.play();
-  });
-}
 
 const videos = [
   {
