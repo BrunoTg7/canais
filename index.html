@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <title>Streaming de Canais e Séries</title>
     <style>
       * {
@@ -74,6 +75,37 @@
 
       .card h3 {
         margin: 0;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      li {
+        padding: 16px;
+        border-bottom: 1px solid #ddd;
+      }
+      li:last-child {
+        border-bottom: none;
+      }
+      li:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      li:hover {
+        background-color: #efefef;
+      }
+      a {
+        color: #1a73e8;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      a:hover {
+        color: #0056b3;
       }
     </style>
   </head>
@@ -642,9 +674,7 @@
           <!-- GNT -->
           <div class="card">
             <h3>GNT</h3>
-            <button
-              onclick="carregarIframe('https://embedcanaistv.com/gnt/')"
-            >
+            <button onclick="carregarIframe('https://embedcanaistv.com/gnt/')">
               Assistir
             </button>
           </div>
@@ -685,7 +715,14 @@
             </button>
           </div>
         </div>
-        <div class="container"></div>
+        <div class="containerFilme">
+          <ul id="videoList"></ul>
+
+          <video id="videoPlayer" controls>
+            Seu navegador não suporta o elemento de vídeo.
+          </video>
+        </div>
+
         <iframe
           id="video-iframe"
           allow="encrypted-media"
@@ -694,7 +731,6 @@
         ></iframe>
       </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script>
       function carregarIframe(url) {
         const iframe = document.getElementById("video-iframe");
@@ -806,5 +842,6 @@
         });
       })();
     </script>
+    <script src="app.js"></script>
   </body>
 </html>
