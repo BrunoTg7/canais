@@ -42,7 +42,7 @@ function criarListaDeVideos() {
   videos.forEach((video) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
-    a.href = "#";
+    a.href = "";
     a.setAttribute("data-src", video.url);
     a.innerText = video.nome;
     a.addEventListener("click", function (event) {
