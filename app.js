@@ -35,6 +35,7 @@ function criarListaDeVideos() {
       event.preventDefault();
       const videoSrc = this.getAttribute("data-src");
       const videoPlayer = document.getElementById("videoPlayer");
+      videoPlayer.style.display = "block"
       videoPlayer.src = videoSrc;
       videoPlayer.play();
     });
